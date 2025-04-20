@@ -1,6 +1,6 @@
 # StockInsight App
 
-A simple web application for stock analysis and insights built with Next.js and TypeScript.
+A simple web application for stock analysis and insights built with Next.js App Router and TypeScript.
 
 ## Prerequisites
 
@@ -54,41 +54,57 @@ yarn start
 
 ## Project Structure
 
-The project follows a modern Next.js structure with TypeScript:
+The project follows a modern Next.js App Router structure with TypeScript:
 
 ```
 sad-app/
+├── app/                   # App Router directory
+│   ├── api/               # API routes
+│   │   ├── stocks/        # Stock data API
+│   │   └── analysis/      # Analysis API
+│   ├── components/        # Server components
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utility functions
+│   ├── error.tsx          # Error handling
+│   ├── layout.tsx         # Root layout
+│   ├── loading.tsx        # Loading state
+│   ├── not-found.tsx      # 404 page
+│   └── page.tsx           # Home page
 ├── components/
-│   ├── layout/              # Layout components (Header, Footer)
-│   ├── ui/                  # Reusable UI components (Button, etc.)
-│   └── features/            # Feature-specific components
-│       ├── stocks/          # Stock-related components
-│       └── market/          # Market-related components
-├── pages/
-│   ├── _app.tsx             # Custom App component
-│   ├── index.tsx            # Homepage
-│   └── api/                 # API routes
-│       └── stocks.ts        # Stock data API
-├── hooks/                   # Custom React hooks
-│   └── useStockData.ts      # Hook for fetching stock data
-├── utils/                   # Utility functions
-│   └── formatters.ts        # Formatting utilities
-├── styles/                  # CSS styles
-│   └── globals.css          # Global styles
-├── contexts/                # React Context for state management
-│   └── StockContext.tsx     # Stock data context
-├── public/                  # Static assets
-│   ├── images/              # Image files
-│   └── fonts/               # Font files
-└── package.json             # Dependencies and scripts
+│   ├── layout/            # Layout components (Header, Footer)
+│   ├── ui/                # Reusable UI components (Button, etc.)
+│   └── features/          # Feature-specific components
+│       ├── stocks/        # Stock-related components
+│       └── market/        # Market-related components
+├── contexts/              # React Context for state management
+│   └── StockContext.tsx   # Stock data context
+├── public/                # Static assets
+│   ├── images/            # Image files
+│   └── fonts/             # Font files
+├── styles/                # CSS styles
+│   └── globals.css        # Global styles
+└── package.json           # Dependencies and scripts
 ```
 
 ## Tech Stack
 
-- **Frontend Framework**: Next.js
+- **Frontend Framework**: Next.js (App Router)
 - **Language**: TypeScript
 - **Styling**: TailwindCSS
 - **State Management**: React Context & Hooks
+- **Data Fetching**: SWR with Next.js data fetching
 - **Charts**: Chart.js with react-chartjs-2
 - **Animations**: Framer Motion
 - **Drag and Drop**: react-dnd
+
+## Benefits of App Router Migration
+
+The migration to Next.js App Router provides several benefits:
+
+1. **Built-in Data Fetching**: Leverages React Server Components for efficient data loading
+2. **Improved Caching**: Automatic caching of fetch requests with fine-grained control
+3. **Simplified API Routes**: Enhanced API route handlers
+4. **Streaming & Suspense**: Gradual rendering of UI with React Suspense
+5. **Layout System**: Persistent layouts across page navigations
+6. **Error Handling**: Improved error boundaries and recovery
+7. **Loading States**: Built-in loading UI

@@ -1,3 +1,5 @@
+'use client';
+
 // components/AnalysisPool.js
 import { useState, useEffect } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
